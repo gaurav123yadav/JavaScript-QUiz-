@@ -85,7 +85,7 @@ let questions = [
     id: 8,
     question: "What does HTML stand for?",
     answer:  "Hyper Text Markup Language",
-    optionS: [
+    options: [
         "Hyper Tag Markup Language",
         "Hyper Text Markup Language",
         "Hyperlinks Text Mark Language",
@@ -96,7 +96,7 @@ let questions = [
 {   id: 9,
     question: "What does CSS stand for?",
     answer:  "Cascading Style Sheet",
-    optionS: [
+    options: [
         "Computing Style Sheet",
         "Creative Style System",
         "Cascading Style Sheet",
@@ -108,7 +108,7 @@ let questions = [
   id: 10, 
     question: "Where should a CSS file be referenced in a HTML file?",
     answer: "Inside the head section",
-    optionS: [
+    options: [
         "Before any HTML code",
         "After all HTML code",
         "Inside the head section",
@@ -120,7 +120,7 @@ let questions = [
      id: 11,
     question: "What is the correct format for aligning written content to the center of the page in CSS?",
         answer: "Text-align:center;",
-        optionS: [
+        options: [
         "Text-align:center;",
         "Font-align:center;",
         "Text:align-center;",
@@ -132,7 +132,7 @@ let questions = [
     id: 12,
     question: "What is the correct format for changing the background colour of a div in CSS?",
         answer: "Background-color:red;",
-    optionS: [
+    options: [
         "Bg-color:red;",
         "bg:red;",
         "Background-colour:red;",
@@ -143,14 +143,14 @@ let questions = [
 {   id: 13,
     question: "Choose the correct HTML tag for the largest heading",
     answer: "<h1>",
-    optionS: ["<heading>", "<h6>", "<head>", "<h1>"],
+    options: ["<heading>", "<h6>", "<head>", "<h1>"],
    
 },
 {
     id: 14,
     question: "Which is the correct CSS syntax?",
     answer:"Body {color: black}",
-    optionS: [
+    options: [
         "Body {color: black}",
         "{body;color:black}",
         "{body:color=black(body}",
@@ -162,21 +162,21 @@ let questions = [
     id: 15,
     question: "In CSS, what is the correct option to select all the tags on a page?",
         answer:  "* { }",
-       optionS: ["<p> { }", ".p { }", "#p { }", "* { }"]
+       options: ["<p> { }", ".p { }", "#p { }", "* { }"]
    
 },
 {   
   id: 16, 
     question: "Select the correct HTML tag to make a text italic?",
     answer: "I",
-    optionS: ["Italic", "II", "IT", "I"]
+    options: ["Italic", "II", "IT", "I"]
    
 },
 {   
     id: 17,
     question: "Select the correct HTML tag to make a text bold.",
     answer: "b",
-    optionS: ["bo", "bb", "b", "bold"]
+    options: ["bo", "bb", "b", "bold"]
    
 },
 
