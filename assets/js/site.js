@@ -9,7 +9,8 @@ let questions = [
       "Randomely Access Memory",
       "Run Aceapt Memory",
       "None of these"
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
   {
     id: 2,
@@ -20,7 +21,8 @@ let questions = [
       "Central Processing Unit",
       "Central Preload Unit",
       "None of these"
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
   {
     id: 3,
@@ -31,7 +33,8 @@ let questions = [
       "Electric Mail",
       "Engine Mail",
       "None of these"
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
   {
     id: 4,
@@ -42,7 +45,8 @@ let questions = [
       "Hey Text Markup Language",
       "Hypertaxt Markup Language",
       "Hypertext Markup Language",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
 
   {
@@ -54,7 +58,8 @@ let questions = [
       "Cascading Style Sheep",
       "Cartoon Style Sheets",
       "Cascading Super Sheets",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
 
   {
@@ -66,7 +71,8 @@ let questions = [
       "Hypertext Test Protocol",
       "Hey Transfer Protocol",
       "Hypertext Transfer Protocol",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
   {
     id: 7,
@@ -78,7 +84,8 @@ let questions = [
       "JustScript",
       "JordenShoes",
 
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
 
   {
@@ -90,7 +97,8 @@ let questions = [
         "Hyper Text Markup Language",
         "Hyperlinks Text Mark Language",
         "Hyperlinking Text Marking Language",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
     
 },
 {   id: 9,
@@ -101,7 +109,8 @@ let questions = [
         "Creative Style System",
         "Cascading Style Sheet",
         "Creative Styling Sheet",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
    
 },
 {    
@@ -113,7 +122,8 @@ let questions = [
         "After all HTML code",
         "Inside the head section",
         "Inside the body section",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
     
 },
 {
@@ -125,7 +135,8 @@ let questions = [
         "Font-align:center;",
         "Text:align-center;",
         "Font:align-center;",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
     
 },
 {
@@ -137,13 +148,15 @@ let questions = [
         "bg:red;",
         "Background-colour:red;",
         "Background-color:red;",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
    
 },
 {   id: 13,
     question: "Choose the correct HTML tag for the largest heading",
     answer: "<h1>",
     options: ["<heading>", "<h6>", "<head>", "<h1>"],
+    timeTakenToAnswerTheQuestion:0
    
 },
 {
@@ -155,28 +168,32 @@ let questions = [
         "{body;color:black}",
         "{body:color=black(body}",
         "body:color=black",
-    ]
+    ],
+    timeTakenToAnswerTheQuestion:0
   },
   
 {   
     id: 15,
     question: "In CSS, what is the correct option to select all the tags on a page?",
         answer:  "* { }",
-       options: ["<p> { }", ".p { }", "#p { }", "* { }"]
+       options: ["<p> { }", ".p { }", "#p { }", "* { }"],
+       timeTakenToAnswerTheQuestion:0
    
 },
 {   
   id: 16, 
     question: "Select the correct HTML tag to make a text italic?",
     answer: "I",
-    options: ["Italic", "II", "IT", "I"]
+    options: ["Italic", "II", "IT", "I"],
+    timeTakenToAnswerTheQuestion:0
    
 },
 {   
     id: 17,
     question: "Select the correct HTML tag to make a text bold.",
     answer: "b",
-    options: ["bo", "bb", "b", "bold"]
+    options: ["bo", "bb", "b", "bold"],
+    timeTakenToAnswerTheQuestion:0
    
 },
 
@@ -185,37 +202,56 @@ let questions = [
 
 let question_count = 0;
 let points = 0;
-
+let secondsToTakeAnswers = 0
+let totalTime = 0;
 window.onload = function () {
   show(question_count);
-
 };
 
 function next() {
 
   // if the question is last then redirect to final page
   if (question_count == questions.length - 1) {
-    sessionStorage.setItem("time", time);
+    
+    questions.forEach(question => {
+      totalTime += question.timeTakenToAnswerTheQuestion;
+    });
+    sessionStorage.setItem("time", totalTime);
+    console.log(totalTime);
     clearInterval(mytime);
     location.href = "end.html";
-  }
-  console.log(question_count);
 
-  let user_answer = document.querySelector("li.option.active").innerHTML;
+  }
+  // this variabe is in timer.js 
+  seconds = timeOfEachQuestion;
+  // this variabe is in timer.js 
+
+  // console.log(question_count,questions);
+
+  let user_answer = document.querySelector("li.option.active");
   //  if the answer is right or wrong
-  if (user_answer == questions[question_count].answer) {
+  if (!!user_answer && user_answer.innerHTML == questions[question_count].answer) {
     points += 10;
-    sessionStorage.setItem("points", points);
+  } else {
+    points += 0;
+    
   }
-  console.log(points);
-
+  sessionStorage.setItem("points", points);
+  questions[question_count].timeTakenToAnswerTheQuestion = secondsToTakeAnswers;
   question_count++;
   show(question_count);
+  console.log(questions)
 }
 
+
+
+
+
+
+
 function show(count) {
-  let question = document.getElementById("questions");
-  let [first, second, third, fourth] = questions[count].options;
+  // let  = document.getElementById("questions");
+  let [question,first, second, third, fourth] = [document.getElementById("questions"),...questions[count].options];
 
   question.innerHTML = `
   <h2>Q${count + 1}. ${questions[count].question}</h2>
