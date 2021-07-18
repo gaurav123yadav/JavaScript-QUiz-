@@ -152,15 +152,8 @@ let questions = [
     timeTakenToAnswerTheQuestion:0
    
 },
-{   id: 13,
-    question: "Choose the correct HTML tag for the largest heading",
-    answer: "<h1>",
-    options: ["<heading>", "<h6>", "<head>", "<h1>"],
-    timeTakenToAnswerTheQuestion:0
-   
-},
 {
-    id: 14,
+    id: 13,
     question: "Which is the correct CSS syntax?",
     answer:"Body {color: black}",
     options: [
@@ -173,7 +166,7 @@ let questions = [
   },
   
 {   
-    id: 15,
+    id: 14,
     question: "In CSS, what is the correct option to select all the tags on a page?",
         answer:  "* { }",
        options: ["<p> { }", ".p { }", "#p { }", "* { }"],
@@ -181,7 +174,7 @@ let questions = [
    
 },
 {   
-  id: 16, 
+  id: 15, 
     question: "Select the correct HTML tag to make a text italic?",
     answer: "I",
     options: ["Italic", "II", "IT", "I"],
@@ -189,7 +182,7 @@ let questions = [
    
 },
 {   
-    id: 17,
+    id: 16,
     question: "Select the correct HTML tag to make a text bold.",
     answer: "b",
     options: ["bo", "bb", "b", "bold"],
